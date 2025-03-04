@@ -26,6 +26,9 @@ st.markdown("""
 st.title("🔐 Password Strength Generator")
 st.write("Enter your password below to check its security level. 🔍")
 
+# Placeholder for password strength
+strength_placeholder = st.empty()
+
 # Function to check password strength
 def check_password_strength(password):
     score = 0
@@ -53,11 +56,11 @@ def check_password_strength(password):
 
     # Display password strength results
     if score == 4:
-        st.success("✅ **Strong Password** - Your password is secure.")
+        strength_placeholder.success("✅ **Strong Password** - Your password is secure.")
     elif score == 3:
-        st.info("⚠️ **Moderate Password** - Consider improving security by adding more features.")
+        strength_placeholder.info("⚠️ **Moderate Password** - Consider improving security by adding more features.")
     else:
-        st.error("❌ **Weak Password** - Follow the suggestions below to strengthen it.")
+        strength_placeholder.error("❌ **Weak Password** - Follow the suggestions below to strengthen it.")
 
     # Feedback
     if feedback:
@@ -72,4 +75,4 @@ password = st.text_input("Enter your password:", type="password", help="Make sur
 if password:
     check_password_strength(password)
 else:
-    st.warning("⚠️ Please enter a password first!")  # Show warning if password is empty
+    strength_placeholder.warning("⚠️ Please enter a password first!")  # Show warning if password is empty
