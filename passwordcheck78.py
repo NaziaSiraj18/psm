@@ -32,7 +32,7 @@ def check_password_strength(password):
     feedback = []
 
     if len(password) >= 8:
-        score += 1
+        score += 1 #increased score by 1
     else:
         feedback.append("❌ Password should be **at least 8 characters long**.")
 
@@ -59,17 +59,18 @@ def check_password_strength(password):
     else:
         st.error("❌ **Weak Password** - Follow the suggestions below to strengthen it.")
 
-    # Feedback
+    #Feedback
     if feedback:
         with st.expander("🔍 **Improve Your Password** "):
             for item in feedback:
                 st.write(item)
 
-# Password input field
+#Password input field
 password = st.text_input("Enter your password:", type="password", help="Make sure your password is strong 🔐")
 
-# Button to check password strength
-if password:
+# Button Working
+if st.button("Check Strength"):
+  if password:
     check_password_strength(password)
 else:
     st.warning("⚠️ Please enter a password first!")  # Show warning if password is empty
