@@ -54,6 +54,7 @@ def check_password_strength(password):
     # Display password strength results
     if score == 4:
         st.success("✅ **Strong Password** - Your password is secure.")
+        st.ballons()
     elif score == 3:
         st.info("⚠️ **Moderate Password** - Consider improving security by adding more features.")
     else:
